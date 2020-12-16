@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/*
+breakpoint argument classes-
+-phone      
+-tab-port
+-tab-land
+-[normal]
+-big-scr
+1em = 16px
+*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 37.5em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+
+body {
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  overflow: hidden;
+  color: #5948f1; }
+
+@keyframes updown {
+  0% {
+    transform: translateY(2rem) scale(1.4); }
+  30% {
+    transform: translateY(-3rem) scale(1.7); }
+  60% {
+    transform: translateY(0rem) scale(1.5); }
+  80% {
+    transform: translateY(-5rem) scale(1.9); }
+  100% {
+    transform: translateY(2rem) scale(1.4); } }
+
+.container {
+  max-width: 110rem;
+  margin: 0 auto; }
+  @media (max-width: 75em) {
+    .container {
+      max-width: 95rem; } }
+  @media (max-width: 56.25em) {
+    .container {
+      max-width: 80%; } }
+  @media (max-width: 37.5em) {
+    .container {
+      max-width: 90%; } }
+
+.navbar {
+  position: fixed;
+  left: 0;
+  height: 6rem;
+  width: 100vw;
+  background: transparent; }
+
+.logo {
+  text-decoration: none;
+  color: #5948f1;
+  font-size: 2.5rem;
+  font-weight: 700; }
+
+.home {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .home__bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -3;
+    transform: translateY(5rem);
+    min-width: 50rem; }
+    @media (max-width: 56.25em) {
+      .home__bg {
+        height: 80%;
+        justify-content: center; } }
+  .home__content {
+    position: relative;
+    width: 100%;
+    font-size: 4rem;
+    font-weight: 600;
+    transform: translateY(1rem);
+    overflow: show;
+    text-align: left; }
+    .home__content::before {
+      position: absolute;
+      content: '';
+      left: 5rem;
+      top: 3rem;
+      height: 10rem;
+      width: 10rem;
+      border-radius: 100%;
+      background-color: rgba(35, 255, 160, 0.4);
+      z-index: -3;
+      animation: updown 5s ease-in-out infinite; }
+    @media (max-width: 56.25em) {
+      .home__content {
+        text-align: center;
+        font-size: 3rem;
+        transform: translateY(-4rem); } }
+  .home__h1 {
+    font-size: 7rem;
+    font-weight: 700;
+    margin-right: 1rem;
+    border-bottom: 1rem solid rgba(35, 195, 255, 0.4);
+    cursor: pointer; }
+    @media (max-width: 56.25em) {
+      .home__h1 {
+        font-size: 5rem; } }
+  .home__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    width: 40%;
+    transform: translateY(10rem); }
+    @media (max-width: 56.25em) {
+      .home__buttons {
+        width: 70%;
+        transform: translateY(13rem); } }
+    @media (max-width: 37.5em) {
+      .home__buttons {
+        transform: translateY(16rem); } }
+
+.btn__group {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center; }
+
+.btn {
+  height: 12rem;
+  width: 12rem;
+  border: 0.5rem solid #fff;
+  border-radius: 100%;
+  padding: 3rem;
+  transition: all 0.3s ease;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer; }
+  .btn--blue {
+    background-color: #23c3ff; }
+  .btn--green {
+    background-color: #23ffa0; }
+  .btn--purple {
+    margin: 0 auto;
+    background-color: #5948f1;
+    color: #fff;
+    height: 7rem;
+    width: 50%;
+    border: 0.5rem solid #fff;
+    border-radius: 0.5rem;
+    padding: 0; }
+  .btn:hover {
+    transform: scale(1.1); }
+  .btn:active {
+    transform: scale(0.9); }
+  .btn__text {
+    font-size: 2.5rem;
+    font-weight: 600; }
+
+.modal {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); }
+  .modal__box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    height: 60rem;
+    width: 45rem;
+    border-radius: 0.3rem;
+    overflow-y: auto;
+    color: #5948f1;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    padding: 2rem;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start; }
+    @media (max-width: 56.25em) {
+      .modal__box {
+        min-height: 55rem;
+        min-width: 50%; } }
+    @media (max-width: 37.5em) {
+      .modal__box {
+        min-height: 55rem;
+        min-width: 50%; } }
+  .modal__close {
+    position: absolute;
+    font-size: 4rem;
+    right: 2rem;
+    top: 0;
+    cursor: pointer; }
+  .modal__group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 10rem; }
+    .modal__group:not(:last-child) {
+      margin-bottom: 1rem; }
+  .modal__head {
+    width: 100%;
+    font-size: 3rem;
+    font-weight: 500;
+    margin: 1rem auto; }
+  .modal__op-text {
+    background-color: rgba(89, 72, 241, 0.9);
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    color: #fff;
+    font-size: 2rem;
+    width: 100%; }
+  .modal__input {
+    display: none; }
+  .modal__label {
+    height: auto;
+    width: 100%;
+    border: 0.1rem solid #5948f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin: 0 0 3rem 0;
+    cursor: pointer; }
+  .modal__input-text {
+    width: 100%;
+    background-color: #eeeeee;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    font-size: inherit;
+    color: #5948f1; }
+    .modal__input-text:placeholder-shown {
+      font-size: inherit; }

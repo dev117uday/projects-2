@@ -1,0 +1,9 @@
+<svg viewBox="0 0 1371.667 466.528">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#23ffa0"/>
+      <stop offset="1" stop-color="#23c3ff"/>
+    </linearGradient>
+  </defs>
+  <path id="Path_33" data-name="Path 33" d="M0,1522.667S180,1452,546,1370s820.667-115.333,820.667-115.333v458.667L0,1716Z" transform="translate(2.5 -1251.977)" stroke="#fff" stroke-width="5" opacity="0.2" fill="url(#linear-gradient)"/>
+</svg>

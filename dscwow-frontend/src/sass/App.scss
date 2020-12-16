@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+// MEDIA QUERY MANAGER /////////////////////////////
+
+/*
+breakpoint argument classes-
+-phone      
+-tab-port
+-tab-land
+-[normal]
+-big-scr
+1em = 16px
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint==phone {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint==tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint==tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint==big-scr {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
+
+// variables /////////////////////////////////////
+
+// colors
+$green: #23ffa0;
+
+$blue: #23c3ff;
+
+$purple: #5948f1;
+
+$dark: #777;
+$white: #fff;
+$black: #000;
+$grey-1: #f7f7f7;
+$grey-2: #eee;
+$grey-3: #333;
+
+// font size
+$default-font: 1.5rem;
+
+// /////////////////  BASE ///////////////////////////
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+
+  @include respond(tab-land) {
+    //1rem=9px
+    font-size: 56.25%;
+  }
+  @include respond(tab-port) {
+    // 1rem = 8px
+    font-size: 50%;
+  }
+  @include respond(phone) {
+    // 1rem = 8px
+    font-size: 50%;
+  }
+  @include respond(big-scr) {
+    // 1rem = 12px
+    font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  overflow: hidden;
+  color: $purple;
+}
+
+// custom scrollbar ////////////////////////////
+
+// ::-webkit-scrollbar {
+//   width: 0.5rem;
+// }
+
+// ::-webkit-scrollbar-track {
+//   background: transparent;
+// }
+
+// ::-webkit-scrollbar-thumb {
+//   background: $med-green;
+// }
+
+// ::-webkit-scrollbar-thumb:hover {
+//   background: $dark-green;
+// }
+
+/////////////////////animations/////////////////////
+
+@keyframes updown {
+  0% {
+    transform: translateY(2rem) scale(1.4);
+  }
+  30% {
+    transform: translateY(-3rem) scale(1.7);
+  }
+  60% {
+    transform: translateY(0rem) scale(1.5);
+  }
+  80% {
+    transform: translateY(-5rem) scale(1.9);
+  }
+  100% {
+    transform: translateY(2rem) scale(1.4);
+  }
+}
+
+// ////////////// Utilities ///////////////////////////;
+
+.container {
+  max-width: 110rem;
+  margin: 0 auto;
+
+  @include respond(tab-land) {
+    max-width: 95rem;
+  }
+
+  @include respond(tab-port) {
+    max-width: 80%;
+  }
+  @include respond(phone) {
+    max-width: 90%;
+  }
+}
+
+//////////////// Navbar ////////////////////////@at-root
+
+.navbar {
+  position: fixed;
+  left: 0;
+  height: 6rem;
+  width: 100vw;
+  background: transparent;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+}
+
+.logo {
+  text-decoration: none;
+  color: $purple;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+////////////////////////////////  Home ////////////////
+
+.home {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -3;
+    transform: translateY(5rem);
+    min-width: 50rem;
+
+    @include respond(tab-port) {
+      height: 80%;
+      justify-content: center;
+    }
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    font-size: 4rem;
+    font-weight: 600;
+    transform: translateY(1rem);
+    overflow: show;
+    text-align: left;
+
+    &::before {
+      position: absolute;
+      content: '';
+      left: 5rem;
+      top: 3rem;
+      height: 10rem;
+      width: 10rem;
+      border-radius: 100%;
+      background-color: rgba($green, 0.4);
+      z-index: -3;
+
+      animation: updown 5s ease-in-out infinite;
+    }
+
+    @include respond(tab-port) {
+      text-align: center;
+      font-size: 3rem;
+      transform: translateY(-4rem);
+    }
+  }
+
+  &__h1 {
+    font-size: 7rem;
+    font-weight: 700;
+    margin-right: 1rem;
+    border-bottom: 1rem solid rgba($blue, 0.4);
+    cursor: pointer;
+
+    @include respond(tab-port) {
+      font-size: 5rem;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    width: 40%;
+    transform: translateY(10rem);
+
+    @include respond(tab-port) {
+      width: 70%;
+      transform: translateY(13rem);
+    }
+    @include respond(phone) {
+      transform: translateY(16rem);
+    }
+  }
+}
+
+.btn__group {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  height: 12rem;
+  width: 12rem;
+  border: 0.5rem solid $white;
+  border-radius: 100%;
+  padding: 3rem;
+  transition: all 0.3s ease;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+
+  &--blue {
+    background-color: $blue;
+  }
+
+  &--green {
+    background-color: $green;
+  }
+  &--purple {
+    margin: 0 auto;
+    background-color: $purple;
+    color: $white;
+    height: 7rem;
+    width: 50%;
+    border: 0.5rem solid $white;
+    border-radius: 0.5rem;
+    padding: 0;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &__text {
+    font-size: 2.5rem;
+    font-weight: 600;
+  }
+}
+
+////////////////////// Modal ////////////////////////////
+
+.modal {
+  position: fixed;
+  background-color: rgba($black, 0.6);
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+
+  &__box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: $white;
+    height: 60rem;
+    width: 45rem;
+    border-radius: 0.3rem;
+    overflow-y: auto;
+    color: $purple;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    padding: 2rem;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+
+    @include respond(tab-port) {
+      min-height: 55rem;
+      min-width: 50%;
+    }
+    @include respond(phone) {
+      min-height: 55rem;
+      min-width: 50%;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    font-size: 4rem;
+    right: 2rem;
+    top: 0;
+    cursor: pointer;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 10rem;
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__head {
+    width: 100%;
+    font-size: 3rem;
+    font-weight: 500;
+    margin: 1rem auto;
+  }
+
+  &__op-text {
+    background-color: rgba($purple, 0.9);
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    color: $white;
+    font-size: 2rem;
+    width: 100%;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    height: auto;
+    width: 100%;
+    border: 0.1rem solid $purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin: 0 0 3rem 0;
+    cursor: pointer;
+  }
+
+  &__input-text {
+    width: 100%;
+    background-color: #eeeeee;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    font-size: inherit;
+    color: $purple;
+
+    &:placeholder-shown {
+      font-size: inherit;
+    }
+  }
+}

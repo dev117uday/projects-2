@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+	<title>Yearn Alert</title>
+</head>
+
+<body>
+
+	<div id="head">
+		<br>
+		<div class="container">
+			<h1>{{ titl }}</h1>
+			<hr>
+		</div>
+	</div>
+
+	<div class="container" id="app">
+
+		<div class="container btn-group btn-group-lg">
+			<button class="btn btn-danger"v-on:click="setData()">Click here to Load Data</button> &nbsp;&nbsp;&nbsp;&nbsp;
+			<button class="btn btn-danger"v-on:click="dumb()">Click here to Dumb Data</button><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<button type="button" v-on:click="setPage(0)" class="btn btn-primary">Dai</button>
+			<button type="button" v-on:click="setPage(1)" class="btn btn-success">USDC</button>
+			<button type="button" v-on:click="setPage(2)" class="btn btn-warning">USDT</button>
+			<button type="button" v-on:click="setPage(3)" class="btn btn-info">BUSD</button>
+		</div>
+		<br>
+		<br>
+		<div v-if="yTokenTab[0]" class="container">
+			<h3>Information about Dai Vault v3</h3>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Field</th>
+						<th>Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(value, propertyName) in daiData">
+						<td>{{ propertyName }}</td>
+						<td>{{ value }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div v-if="yTokenTab[1]" class="container">
+			<h3>Information about USDC Vault v3</h3>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Field</th>
+						<th>Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(value, propertyName) in usdcData">
+						<td>{{ propertyName }}</td>
+						<td>{{ value }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div v-if="yTokenTab[2]" class="container">
+			<h3>Information about USDT Vault v3</h3>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Field</th>
+						<th>Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(value, propertyName) in usdtData">
+						<td>{{ propertyName }}</td>
+						<td>{{ value }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div v-if="yTokenTab[3]" class="container">
+			<h3>Information about BUSD Vault v3</h3>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Field</th>
+						<th>Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(value, propertyName) in busdData">
+						<td>{{ propertyName }}</td>
+						<td>{{ value }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<script src="./app.js"></script>
+
+</body>
+
+</html>
